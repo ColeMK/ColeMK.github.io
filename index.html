@@ -1,46 +1,197 @@
-<!--MDN Webdocs good resource-->
+<!-- MDN Webdocs good resource -->
 <html>
-    <head>
-    <!--Title Goes in the head-->
+<head>
+    <!-- Title Goes in the head -->
     <title>ColeMK</title>
     <style>
         img {
             width: 200px;
             height: 200px;
         }
+
         .headshot {
             border-radius: 50%;
         }
+
         article {
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: cornsilk;
+            padding: 0px;
         }
+
         p {
             font-family: Arial, Helvetica, sans-serif;
-            font-size: 18px;
+            font-size: 14px;
         }
+
         body {
-            background-image: url("background-image.jpg");
+            background-color: white;
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        .personal-webpage {
+            font-family: Arial, Helvetica, sans-serif;
+            display: inline-block;
+            transition: 1s;
+        }
+
+        .personal-webpage:hover {
+            color: forestgreen;
+        }
+
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+        }
+
+        .work {
+            padding: 0px;
+        }
+
+        .experience-section {
+            padding: 20px;
+        }
+
+        .experience-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .company-logo {
+            margin-right: 20px;
+            width: 50px; /* Adjust the width as needed */
+            height: 50px; /* Adjust the height as needed */
+            object-fit: cover;
+        }
+
+        .company-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .black-bar {
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            margin: 20px 0;
+        }
     </style>
+</head>
 
-    </head>
-    <body>
-        <main>
-            <img class="headshot" src="TORC Photo.jpeg" width="200" height="200"/>
-            <h1> My Personal Webpage </h1>
-            <article> 
-                <p> My Name is Cole. <a href="https://www.linkedin.com/in/cole-kingery/" target="_blank">LinkedIn</a></p>
-            </article>
-            <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-            </ul>
-        </main>
+<body>
+<main>
+    <img id="torc-photo" class="headshot" src="TORC Photo.jpeg" width="100" height="100"
+         style="position: absolute; top: 0; right: 0;"/>
+    <h1 class="personal-webpage">Cole Kingery</h1>
+    <h2 class="personal-info">About Me</h2>
+    <article>
+        <p>My Name is Cole. <a href="https://www.linkedin.com/in/cole-kingery/" target="_blank">LinkedIn</a></p>
+    </article>
+    <h2 class="personal-info">Education</h2>
+    <article>
+        <h3>Purdue University</h3>
+        <p>Bachelor of Science in Computer Engineering</p>
+        <p>2020-2024</p>
+    </article>
+    <article>
+        <h3>Purdue University</h3>
+        <p>Master of Science in Electrical and Computer Engineering</p>
+        <p>2023-2025</p>
+    </article>
 
-    </body>
+    <div class="experience-section">
+        <h2 class="personal-info">Work Experience</h2>
+        <div class="black-bar"></div>
+        <div class="experience-item">
+            <img class="company-logo" src="intel_logo.png" alt="Intel Logo">
+            <div class="company-info">
+                <article class="work">
+                    <h3>Intel</h3>
+                    <p>Software Engineer Intern</p>
+                    <p><em>May 2024 - Aug 2024</em></p>
+                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="black-bar"></div>
+
+        <div class="experience-item">
+            <img class="company-logo" src="torc_logo.png" alt="Torc Logo">
+            <div class="company-info">
+                <h3>Torc Robotics</h3>
+                <article class="work">
+                    <p>Machine Learning Intern</p>
+                    <p><em>May 2023 - Aug 2023</em></p>
+                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="black-bar"></div>
+
+        <div class="experience-item">
+            <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
+            <div class="company-info">
+                <h3>Stellantis</h3>
+                <article class="work">
+                    <p>Sensing and Data Engineering Co-Op</p>
+                    <p><em>Jan 2023 - May 2023</em></p>
+                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="black-bar"></div>
+
+        <div class="experience-item">
+            <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
+            <div class="company-info">
+                <h3>Stellantis</h3>
+                <article class="work">
+                    <p>Machine Learning Co-Op</p>
+                    <p><em>May 2022 - Aug 2022</em></p>
+                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="black-bar"></div>
+
+        <div class="experience-item">
+            <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
+            <div class="company-info">
+                <h3>Stellantis</h3>
+                <article class="work">
+                    <p>Body Control Software Co-Op</p>
+                    <p><em>Aug 2021 - Dec 2021</em></p>
+                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                </article>
+            </div>
+        </div>
+    </div>
+    
+    <div class="black-bar"></div>
+
+    <h2 class="personal-info">Favorite Projects</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+</main>
+<script>
+    let image = document.getElementById("torc-photo");
+    image.onclick = event => alert("That's me!");
+</script>
+</body>
 </html>
