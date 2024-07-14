@@ -129,7 +129,7 @@
 
             sections.forEach((section, index) => {
                 const { start, end } = fadePoints[index];
-                let opacity = 1;
+                let opacity = 0;
                 if (scrollPosition >= start && scrollPosition <= end) {
                     opacity = (scrollPosition - start) / (end - start);
                 } else if (scrollPosition > end) {
