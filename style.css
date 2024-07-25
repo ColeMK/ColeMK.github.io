@@ -10,13 +10,16 @@ img {
 }
 
 body {
-    background: linear-gradient(270deg, #81ff8b, #ffffff);
+    background: linear-gradient(270deg, #92ff9b, #ffffff);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
 }
 
 .headshot {
     border-radius: 50%;
+}
+.self-photo {
+    border-radius: 5%;
 }
 
 article {

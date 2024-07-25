@@ -10,22 +10,24 @@
 <main>
     <div class="fade-section" id="section1">
 
-        <img id="torc-photo" class="headshot" src="TORC Photo.jpeg" width="100" height="100"
-            style="position: absolute; top: 0; right: 0;"/>
+        <img id="torc-photo" class = self-photo src="mountains.JPG" style="position: absolute; top: 1%; right: 1%; width: 384; height: 512;" />
         <h1 class="personal-webpage">Cole Kingery</h1>
         <h2 class="personal-info">About Me</h2>
         <article>
-            <p>My Name is Cole. <a href="https://www.linkedin.com/in/cole-kingery/" target="_blank">LinkedIn</a></p>
+            <article style="max-width: 600;">
+                <p>Hi!  I'm a master's student in Electrical and Computer Engineering at Purdue University, nearing completion of my degree. I have a strong passion for learning, which I pursue through coursework, professional experiences, and personal projects. This curiosity has driven me to explore various roles in industry. Currently, I'm particularly interested in Software Engineering and applied Machine Learning.    <a href="https://www.linkedin.com/in/cole-kingery/" target="_blank">LinkedIn</a></p>
+            </article>
         </article>
         <h2 class="personal-info">Education</h2>
         <article>
             <h3>Purdue University</h3>
-            <p>Bachelor of Science in Computer Engineering</p>
-            <p>2020-2024</p>
+            West Lafayette, Indiana
+            <p><strong><em>Bachelor of Science in Computer Engineering</em></strong></p>
+<p>2020-2024</p>
         </article>
         <article>
-            <h3>Purdue University</h3>
-            <p>Master of Science in Electrical and Computer Engineering</p>
+
+            <p><strong><em>Master of Science in Electrical and Computer Engineering</em></strong></p>
             <p>2023-2025</p>
         </article>
     </div>
@@ -34,6 +36,7 @@
     <div class="experience-section">
         <h2 class="personal-info">Work Experience</h2>
         <div class="black-bar"></div>
+
         <div class="experience-item">
             <img class="company-logo" src="intel_logo.png" alt="Intel Logo">
             <div class="company-info">
@@ -51,8 +54,8 @@
         <div class="experience-item">
             <img class="company-logo" src="torc_logo.png" alt="Torc Logo">
             <div class="company-info">
-                <h3>Torc Robotics</h3>
                 <article class="work">
+                <h3>Torc Robotics</h3>
                     <p>Machine Learning Intern</p>
                     <p><em>May 2023 - Aug 2023</em></p>
                     <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
@@ -65,8 +68,8 @@
         <div class="experience-item">
             <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
             <div class="company-info">
-                <h3>Stellantis</h3>
                 <article class="work">
+                <h3>Stellantis</h3>
                     <p>Sensing and Data Engineering Co-Op</p>
                     <p><em>Jan 2023 - May 2023</em></p>
                     <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
@@ -79,8 +82,8 @@
         <div class="experience-item">
             <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
             <div class="company-info">
-                <h3>Stellantis</h3>
                 <article class="work">
+                <h3>Stellantis</h3>
                     <p>Machine Learning Co-Op</p>
                     <p><em>May 2022 - Aug 2022</em></p>
                     <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
@@ -93,8 +96,8 @@
         <div class="experience-item">
             <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
             <div class="company-info">
-                <h3>Stellantis</h3>
                 <article class="work">
+                <h3>Stellantis</h3>
                     <p>Body Control Software Co-Op</p>
                     <p><em>Aug 2021 - Dec 2021</em></p>
                     <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
@@ -127,6 +130,21 @@
         window.addEventListener('scroll', function() {
             var scrollPosition = window.scrollY;
 
+            // // For gradient
+            // var threshold = 500;
+    
+            // // Check if we've scrolled past the threshold
+            // if (scrollPosition > threshold) {
+            //     // Change the background of the body or any specific element
+            //     document.body.style.background = 'url("style.css")';
+            //     // Adjust the style as needed, e.g., to cover the entire background
+            //     document.body.style.backgroundSize = 'cover';
+            // } else {
+            //     // Revert to the original background if below the threshold
+            //     document.body.style.background = ''; // Set this to the original background if needed
+            // }
+            
+            // For fade
             sections.forEach((section, index) => {
                 const { start, end } = fadePoints[index];
                 let opacity = 0;
