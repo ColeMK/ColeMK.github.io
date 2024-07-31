@@ -35,6 +35,7 @@
     <div class="fade-section" id="section2">
     <div class="experience-section">
         <h2 class="personal-info">Work Experience</h2>
+
         <div class="black-bar"></div>
 
         <div class="experience-item">
@@ -49,7 +50,7 @@
             </div>
         </div>
 
-        <div class="black-bar"></div>
+        <!-- <div class="black-bar"></div> -->
 
         <div class="experience-item">
             <img class="company-logo" src="torc_logo.png" alt="Torc Logo">
@@ -63,7 +64,7 @@
             </div>
         </div>
 
-        <div class="black-bar"></div>
+        <!-- <div class="black-bar"></div> -->
 
         <div class="experience-item">
             <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
@@ -77,7 +78,7 @@
             </div>
         </div>
 
-        <div class="black-bar"></div>
+        <!-- <div class="black-bar"></div> -->
 
         <div class="experience-item">
             <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
@@ -91,7 +92,7 @@
             </div>
         </div>
 
-        <div class="black-bar"></div>
+        <!-- <div class="black-bar"></div> -->
 
         <div class="experience-item">
             <img class="company-logo" src="stellantis_logo.png" alt="Stellantis Logo">
@@ -127,36 +128,79 @@
         { start: 450, end: 1300 } // Fade points for section 3
     ];
 
-        window.addEventListener('scroll', function() {
-            var scrollPosition = window.scrollY;
-
-            // // For gradient
-            // var threshold = 500;
-    
-            // // Check if we've scrolled past the threshold
-            // if (scrollPosition > threshold) {
-            //     // Change the background of the body or any specific element
-            //     document.body.style.background = 'url("style.css")';
-            //     // Adjust the style as needed, e.g., to cover the entire background
-            //     document.body.style.backgroundSize = 'cover';
-            // } else {
-            //     // Revert to the original background if below the threshold
-            //     document.body.style.background = ''; // Set this to the original background if needed
-            // }
-            
-            // For fade
-            sections.forEach((section, index) => {
-                const { start, end } = fadePoints[index];
-                let opacity = 0;
-                if (scrollPosition >= start && scrollPosition <= end) {
-                    opacity = (scrollPosition - start) / (end - start);
-                } else if (scrollPosition > end) {
-                    opacity = 1;
-                }
-                section.style.opacity = opacity;
-            });
+    function adjustSectionOpacity() {
+        if (document.documentElement.scrollHeight <= window.innerHeight) {
+        sections.forEach(section => {
+            section.style.opacity = 1; // Make all sections fully visible
         });
-    });
+        return; // Exit the function early as no further adjustments are needed
+        }
+        var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        sections.forEach((section, index) => {
+            const { start, end } = fadePoints[index];
+            let opacity = 0;
+            if (scrollPosition >= start && scrollPosition <= end) {
+                opacity = (scrollPosition - start) / (end - start);
+            } else if (scrollPosition > end) {
+                opacity = 1;
+            }
+            section.style.opacity = opacity;
+        });
+    }
+
+    // Adjust opacity on scroll
+    window.addEventListener('scroll', adjustSectionOpacity);
+
+    // Adjust opacity on page load
+    adjustSectionOpacity();
+});
+
+            document.addEventListener('DOMContentLoaded', function() {
+                // Select all experience items
+                var experienceItems = document.querySelectorAll('.experience-item');
+
+                // Function to be called when an experience item is clicked
+                function onExperienceItemClick() {
+                    // Get the description of the clicked experience item
+                    var description = this.querySelector('.work p:last-child').textContent;
+                    
+                    // Create a popup element
+
+                    
+                    // Create a close button
+                    var closeButton = document.createElement('button');
+                    closeButton.classList.add('close-button');
+                    closeButton.textContent = 'Close';
+                    
+                    // Create a description element
+                    var descriptionElement = document.createElement('p');
+                    descriptionElement.textContent = description;
+                    
+                    // Append the close button and description to the popup
+                    popup.appendChild(closeButton);
+                    popup.appendChild(descriptionElement);
+                    
+                    // Append the popup to the body
+                    document.body.appendChild(popup);
+                    
+                    // Function to be called when the close button is clicked
+                    function onCloseButtonClick() {
+                        // Remove the popup from the body
+                        document.body.removeChild(popup);
+                    }
+                    
+                    // Attach click event listener to the close button
+                    closeButton.addEventListener('click', onCloseButtonClick);
+                }
+
+                // Attach click event listener to each experience item
+                experienceItems.forEach(function(item) {
+                    item.addEventListener('click', onExperienceItemClick);
+                });
+            });
+
+
+
 </script>
 </body>
 </html>
