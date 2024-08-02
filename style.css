@@ -18,9 +18,7 @@ body {
 .headshot {
     border-radius: 50%;
 }
-.self-photo {
-    border-radius: 5%;
-}
+
 
 article {
     padding: 0px;
@@ -115,4 +113,40 @@ h3 {
 }
 #section1 {
     opacity: 1;
+}
+
+.aboutMe {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the container */
+    justify-content: space-between; /* Ensure space between items */
+    flex-wrap: wrap; /* Allow items to wrap if necessary */
+}
+.self-photo {
+    border-radius: 5%;
+    max-width: 100%;
+    height: auto;
+    margin-left: 20px; /* Add some space to the left of the image */
+    order: 2; /* Change the order to place the image after the text */
+    flex-shrink: 0; /* Prevent the image from shrinking */
+}
+.text-content {
+    flex: 1; /* Allow the text content to take up remaining space */
+    order: 1;
+    width: 50%;
+    padding-right: 20px; /* Add some padding to the right of the text */
+}
+@media (max-width: 768px), (min-width: 1200px) {
+    .aboutMe {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items horizontally */
+    }
+    .self-photo {
+        margin-left: 0; /* Reset margin on smaller screens */
+        margin-bottom: 20px; /* Add some space below the image */
+        align-self: flex-start;
+    }
+    .text-content {
+        padding-right: 0; /* Reset padding on smaller screens */
+        width: 100%; /* Make text content take full width */
+    }
 }

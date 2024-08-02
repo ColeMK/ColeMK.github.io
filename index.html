@@ -9,15 +9,20 @@
 <body>
 <main>
     <div class="fade-section" id="section1">
-
-        <img id="torc-photo" class = self-photo src="mountains.JPG" style="position: absolute; top: 1%; right: 1%; width: 384; height: 512;" />
-        <h1 class="personal-webpage">Cole Kingery</h1>
-        <h2 class="personal-info">About Me</h2>
-        <article>
-            <article style="max-width: 600;">
-                <p>Hi!  I'm a master's student in Electrical and Computer Engineering at Purdue University, nearing completion of my degree. I have a strong passion for learning, which I pursue through coursework, professional experiences, and personal projects. This curiosity has driven me to explore various roles in industry. Currently, I'm particularly interested in Software Engineering and applied Machine Learning.    <a href="https://www.linkedin.com/in/cole-kingery/" target="_blank">LinkedIn</a></p>
-            </article>
-        </article>
+        
+            
+            <h1 class="personal-webpage">Cole Kingery</h1>
+           <h2 class="personal-info">About Me</h2> 
+        <div class="aboutMe">
+<img id="torc-photo" class = "self-photo" src="mountains.JPG" />
+            
+            
+            <div class="text-content">
+                <article >
+                    <p>Hi!  I'm a master's student in Electrical and Computer Engineering at Purdue University, nearing completion of my degree. I have a strong passion for learning, which I pursue through coursework, professional experiences, and personal projects. This curiosity has driven me to explore various roles in industry. Currently, I'm particularly interested in Software Engineering and applied Machine Learning.    <a href="https://www.linkedin.com/in/cole-kingery/" target="_blank">LinkedIn</a></p>
+                </article>
+            </div>
+        </div>
         <h2 class="personal-info">Education</h2>
         <article>
             <h3>Purdue University</h3>
@@ -129,7 +134,7 @@
     ];
 
     function adjustSectionOpacity() {
-        if (document.documentElement.scrollHeight <= window.innerHeight) {
+        if (document.documentElement.scrollHeight >= window.innerHeight) { // This needs changed to adjust scrollability fade
         sections.forEach(section => {
             section.style.opacity = 1; // Make all sections fully visible
         });
@@ -202,5 +207,13 @@
 
 
 </script>
+<div class="popup-container" style="display:none;">
+    <div class="close-popup">X</div>
+    <div class="popup-content">
+      <div class="popup-content-inner">
+        { Popup Content Goes Here }
+      </div>
+    </div>
+  </div>
 </body>
 </html>
