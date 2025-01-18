@@ -27,21 +27,24 @@
         <article>
             <h3>Purdue University</h3>
             West Lafayette, Indiana
-            <p><strong><em>Bachelor of Science in Computer Engineering</em></strong></p>
-<p>2020-2024</p>
-        </article>
-        <article>
-
             <p><strong><em>Master of Science in Electrical and Computer Engineering</em></strong></p>
             <p>2023-2025</p>
+
+        </article>
+        <article>
+            <p><strong><em>Bachelor of Science in Computer Engineering</em></strong></p>
+            <p>2020-2024</p>
+
         </article>
     </div>
 
     <div class="fade-section" id="section2">
+    <h2 class="personal-info">Work Experience</h2>
+    <p>Click on an experience item to view details</p>
     <div class="experience-section">
-        <h2 class="personal-info">Work Experience</h2>
+        
 
-        <div class="black-bar"></div>
+        <div class="black-bar" style="margin-top: 0;"></div>
 
         <div class="experience-item">
             <img class="company-logo" src="intel_logo.png" alt="Intel Logo">
@@ -50,7 +53,14 @@
                     <h3>Intel</h3>
                     <p>Software Engineer Intern</p>
                     <p><em>May 2024 - Aug 2024</em></p>
-                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    <div class="description" style="display: none;">
+                        <p> 
+                            <strong>Intel Software Engineer Intern</strong> <br>
+                            • Developed a LLM web app to reverse engineer code into structured documentation through multi-file context and prompt engineering. Allowed non-subject matter experts to quickly come up to speed on a given codebase. Enabling a 30% reduction developer time spent understanding code (LLM, Flask, Python)<br>
+                            • Optimized developer productivity through implementing LLM AI Code Reviewers to identify security concerns and speed up code review. Created GitHub runners to allow LLM workflows in GitHub actions (DevOps Workflows)<br>
+                            • Resolved software bugs in a large-scale client facing connectivity software in C# (C#, Debugging)
+                        </p>
+                    </div>
                 </article>
             </div>
         </div>
@@ -64,7 +74,9 @@
                 <h3>Torc Robotics</h3>
                     <p>Machine Learning Intern</p>
                     <p><em>May 2023 - Aug 2023</em></p>
-                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    <div class="description" style="display: none;">
+                        <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    </div>
                 </article>
             </div>
         </div>
@@ -76,9 +88,11 @@
             <div class="company-info">
                 <article class="work">
                 <h3>Stellantis</h3>
-                    <p>Sensing and Data Engineering Co-Op</p>
+                    <p>Data Engineering Co-Op</p>
                     <p><em>Jan 2023 - May 2023</em></p>
-                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    <div class="description" style="display: none;">
+                        <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    </div>
                 </article>
             </div>
         </div>
@@ -92,7 +106,9 @@
                 <h3>Stellantis</h3>
                     <p>Machine Learning Co-Op</p>
                     <p><em>May 2022 - Aug 2022</em></p>
-                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    <div class="description" style="display: none;">
+                        <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    </div>
                 </article>
             </div>
         </div>
@@ -106,7 +122,9 @@
                 <h3>Stellantis</h3>
                     <p>Body Control Software Co-Op</p>
                     <p><em>Aug 2021 - Dec 2021</em></p>
-                    <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    <div class="description" style="display: none;">
+                        <p>Description: $DESCRIPTION_PLACEHOLDER$</p>
+                    </div>
                 </article>
             </div>
         </div>
@@ -122,8 +140,8 @@
     </ul>
 </main>
 <script>
-    let image = document.getElementById("torc-photo");
-    image.onclick = event => alert("That's me!");
+    // let image = document.getElementById("torc-photo");
+    // image.onclick = event => alert("That's me!");
 
     document.addEventListener('DOMContentLoaded', (event) => {
     const sections = document.querySelectorAll('.fade-section');
@@ -165,55 +183,53 @@
                 var experienceItems = document.querySelectorAll('.experience-item');
 
                 // Function to be called when an experience item is clicked
-                function onExperienceItemClick() {
-                    // Get the description of the clicked experience item
-                    var description = this.querySelector('.work p:last-child').textContent;
-                    
-                    // Create a popup element
+                function createPopup(description) {
+            // Find the existing popup container
+            var popupContainer = document.querySelector('.popup-container');
+            var popupContentInner = document.querySelector('.popup-content-inner');
+            // Replace newline characters with <br> tags
+            var formattedDescription = description.replace(/\n/g, '<br>');
 
-                    
-                    // Create a close button
-                    var closeButton = document.createElement('button');
-                    closeButton.classList.add('close-button');
-                    closeButton.textContent = 'Close';
-                    
-                    // Create a description element
-                    var descriptionElement = document.createElement('p');
-                    descriptionElement.textContent = description;
-                    
-                    // Append the close button and description to the popup
-                    popup.appendChild(closeButton);
-                    popup.appendChild(descriptionElement);
-                    
-                    // Append the popup to the body
-                    document.body.appendChild(popup);
-                    
-                    // Function to be called when the close button is clicked
-                    function onCloseButtonClick() {
-                        // Remove the popup from the body
-                        document.body.removeChild(popup);
-                    }
-                    
-                    // Attach click event listener to the close button
-                    closeButton.addEventListener('click', onCloseButtonClick);
-                }
+            // Set the description content
+            popupContentInner.innerHTML = formattedDescription;
 
-                // Attach click event listener to each experience item
-                experienceItems.forEach(function(item) {
-                    item.addEventListener('click', onExperienceItemClick);
-                });
+
+            // Show the popup container
+            popupContainer.style.display = 'block';
+
+            // Add click event to close the popup
+            var closePopupButton = document.querySelector('.close-popup');
+            closePopupButton.addEventListener('click', function() {
+                popupContainer.style.display = 'none';
             });
+        }
+
+        // Function to handle experience item click
+        function onExperienceItemClick() {
+            // Get the description of the clicked experience item
+            var description = this.querySelector('.description p').innerHTML;
+
+            // Call the function to create and show a popup with the description
+            createPopup(description);
+        }
+
+        // Attach click event listener to each experience item
+        experienceItems.forEach(function(item) {
+            item.addEventListener('click', onExperienceItemClick);
+        });
+});
 
 
 
 </script>
 <div class="popup-container" style="display:none;">
-    <div class="close-popup">X</div>
+    
     <div class="popup-content">
-      <div class="popup-content-inner">
-        { Popup Content Goes Here }
-      </div>
+        <div class="close-popup">X</div>
+        <div class="popup-content-inner">
+            <!-- Description content will be inserted here -->
+        </div>
     </div>
-  </div>
+</div>
 </body>
 </html>
